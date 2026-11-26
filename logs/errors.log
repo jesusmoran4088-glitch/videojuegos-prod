@@ -1,0 +1,11 @@
+[2026-10-27 17:09:05,208] ERROR en app: Excepción no controlada en /boom: division by zero
+Traceback (most recent call last):
+  File "C:\Users\pc-01\Desktop\Materia Semestre 7\Desarrollo de Bases de Datos para Web\mini_videojuegos\venv\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\pc-01\Desktop\Materia Semestre 7\Desarrollo de Bases de Datos para Web\mini_videojuegos\venv\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\pc-01\Desktop\Materia Semestre 7\Desarrollo de Bases de Datos para Web\mini_videojuegos\app.py", line 186, in boom
+    return 1 / 0  # Dispara 500 y se guarda en errors.log
+           ~~^~~
+ZeroDivisionError: division by zero

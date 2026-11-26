@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>🎮 Mini-Sistema de Videojuegos</h1>
+<p>Listado de videojuegos registrados en la base de datos.</p>
+
+<table>
+    <tr>
+        <th>ID</th><th>Nombre</th><th>Descripción</th><th>Precio</th><th>Acciones</th>
+    </tr>
+    {% for j in juegos %}
+    <tr>
+        <td>{{ j.id }}</td>
+        <td>{{ j.nombre }}</td>
+        <td>{{ j.descripcion }}</td>
+        <td>${{ j.precio }}</td>
+        <td>
+            {% if current_user.is_authenticated %}
+                <a href="{{ url_for('editar_juego', id=j.id) }}">Editar</a>
+                <form method="POST" action="{{ url_for('eliminar_juego', id=j.id) }}" style="display:inline;">
+                    <button type="submit" class="btn-danger" onclick="return confirm('¿Eliminar?')">Eliminar</button>
+                </form>
+            {% else %}
+                <em>Inicia sesión</em>
+            {% endif %}
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}

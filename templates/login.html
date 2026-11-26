@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>🔐 Iniciar Sesión</h1>
+<p>Accede al Mini-Sistema de Videojuegos</p>
+
+<form method="POST">
+    {{ form.hidden_tag() }}
+    <label>{{ form.username.label }}</label>
+    {{ form.username() }}
+    <label>{{ form.password.label }}</label>
+    {{ form.password() }}
+    <p>{{ form.remember_me() }} {{ form.remember_me.label }}</p>
+    {{ form.submit() }}
+</form>
+<p>¿No tienes cuenta? <a href="{{ url_for('register') }}">Regístrate aquí</a></p>
+{% endblock %}

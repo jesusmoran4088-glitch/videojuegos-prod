@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>🎮 {{ titulo }}</h1>
+<p>Mini-Sistema de Videojuegos</p>
+
+<form method="POST">
+    {{ form.hidden_tag() }}
+    <label>{{ form.nombre.label }}</label>
+    {{ form.nombre() }}
+    <label>{{ form.descripcion.label }}</label>
+    {{ form.descripcion() }}
+    <label>{{ form.precio.label }}</label>
+    {{ form.precio() }}
+    {{ form.submit() }}
+</form>
+{% endblock %}
