@@ -1,5 +1,10 @@
 Flask
 Flask-SQLAlchemy
 Flask-Login
-PyMySQL
+Flask-WTF
+WTForms
+email-validator
 gunicorn
+pymysql
+cryptography
+sentry-sdk[flask]

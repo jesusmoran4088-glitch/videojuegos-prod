@@ -11,21 +11,21 @@ services:
     volumes:
       - db_data:/var/lib/mysql
     healthcheck:
-      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "user", "-ppwd"]
-      interval: 10s
-      timeout: 5s
-      retries: 5
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      timeout: 20s
+      retries: 10
 
   web:
     build: .
     ports:
-      - "80:8000"
+      - '80:8000'
     depends_on:
       db:
         condition: service_healthy
     environment:
+      # URL completa y correcta para conectar con el servicio "db"
       DATABASE_URL: mysql+pymysql://user:pwd@db:3306/videojuegos
-      SECRET_KEY: 'cambia_esta_clave_por_una_mas_segura'
+      SECRET_KEY: 'cambia_esta_clave_por_una_muy_segura'
     restart: always
 
 volumes:
